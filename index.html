@@ -227,7 +227,7 @@ const REPORTS=[
 
   { name:"KVI Item OOS Big format", cat:"im",
     sub:"KVI item out-of-stock · Big format", link:"https://app.powerbi.com/groups/ab7053a2-0f81-4a30-a82e-0646e82cc854/reports/8688c39d-e03b-4d1c-87df-04a37ab5c8d8/2dfe6b069b60a2d88425?experience=power-bi&clientSideAuth=0",
-    thumb:"H", btn:"Go to dashboard" },
+    thumb:"N", accent:"#A21CAF", btn:"Go to dashboard" },
 
   { name:"Purchase Monthly", cat:"purchase",
     sub:"Purchasing & supplier intake · monthly", link:"https://app.powerbi.com/groups/ab7053a2-0f81-4a30-a82e-0646e82cc854/reports/59df358a-a2de-4acb-8cc5-62f07eb206d8/4d23868288332014cc98?experience=power-bi",
@@ -370,6 +370,21 @@ const THUMBS={
   F:tile(TH_BLUE,"Purchase Monthly",[["PO VALUE","฿12.8M"],["SUPPLIERS","184"],["ON-TIME","96%"],["INTAKE","2,410"]],{a:"PO value trend",b:"By category",c:"Top suppliers",d:"Fill rate",dpct:.96,dt:"96%",ds:"on time"}),
   G:tile(TH_RED,"Renovate",[["STORES","42"],["ON TRACK","88%"],["BUDGET","฿64M"],["DELAY","5"]],{a:"Progress trend",b:"By phase",c:"Top sites",d:"Completion",dpct:.88,dt:"88%",ds:"complete"}),
   H:stockThumb(),
+  N:`<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KVI Item OOS — Big format">
+    <rect width="320" height="170" fill="#FAE8FF"/>
+    <path d="M220 0H320V170H280Z" fill="#F5D0FE"/>
+    <rect width="320" height="7" fill="#A21CAF"/>
+    <text x="18" y="27" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#86198F">ITEM AVAILABILITY</text>
+    <text x="16" y="78" font-family="Inter, sans-serif" font-size="52" font-weight="800" letter-spacing="-2" fill="#701A75">KVI</text>
+    <text x="126" y="76" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#A21CAF">Item OOS</text>
+    <rect x="16" y="92" width="181" height="42" rx="10" fill="#86198F"/>
+    <text x="106.5" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">Big format</text>
+    <g fill="none" stroke="#A21CAF" stroke-width="3" stroke-linejoin="round">
+      <path d="M224 102L257 85L290 102V140H224Z"/>
+      <path d="M235 140V112H279V140M249 112V140M265 112V140"/>
+    </g>
+    <text x="18" y="155" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#86198F">Key Value Items · Out-of-stock</text>
+  </svg>`,
   I:tile(TH_ORANGE,"Price Scrapping",[["ITEMS","12,480"],["RIVALS","8"],["GAP","-3.2%"],["MATCHED","94%"]],{a:"Price index trend",b:"By competitor",c:"Biggest gaps",d:"Match rate",dpct:.94,dt:"94%",ds:"matched"}),
   K:renovateStockThumb(),
   L:monthlyThumb("Big format","big"),
@@ -381,7 +396,7 @@ const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&g
 function thumbHtml(t){if(!t) return THUMBS.A; if(t.startsWith('img:')) return `<img src="${esc(t.slice(4))}" alt="">`; return THUMBS[t]||THUMBS.A;}
 
 function cardHtml(r){
-  const accent=`var(--c-${r.cat})`;
+  const accent=r.accent || `var(--c-${r.cat})`;
   if(r.status==='soon'){
     return `<article class="card soon" data-cat="${r.cat}" style="--accent:${accent}">
       <div class="soon-body">
