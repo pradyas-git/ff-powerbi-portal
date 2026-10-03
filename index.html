@@ -229,6 +229,10 @@ const REPORTS=[
     sub:"KVI item out-of-stock · Big format", link:"https://app.powerbi.com/groups/ab7053a2-0f81-4a30-a82e-0646e82cc854/reports/8688c39d-e03b-4d1c-87df-04a37ab5c8d8/2dfe6b069b60a2d88425?experience=power-bi&clientSideAuth=0",
     thumb:"N", accent:"#A21CAF", btn:"Go to dashboard" },
 
+  { name:"KVI Item OOS BCM", cat:"im",
+    sub:"KVI item out-of-stock · BCM", link:"https://app.powerbi.com/groups/ab7053a2-0f81-4a30-a82e-0646e82cc854/reports/b6f37769-fa24-4656-a279-5120797cf9ff/2dfe6b069b60a2d88425?experience=power-bi&clientSideAuth=0",
+    thumb:"O", accent:"#A21CAF", btn:"Go to dashboard" },
+
   { name:"Purchase Monthly", cat:"purchase",
     sub:"Purchasing & supplier intake · monthly", link:"https://app.powerbi.com/groups/ab7053a2-0f81-4a30-a82e-0646e82cc854/reports/59df358a-a2de-4acb-8cc5-62f07eb206d8/4d23868288332014cc98?experience=power-bi",
     status:"fresh", thumb:"F", updated:"Today 06:00", btn:"Go to dashboard", pages:3, owner:"Buying" },
@@ -390,6 +394,7 @@ const THUMBS={
   L:monthlyThumb("Big format","big"),
   M:monthlyThumb("BCM format","bcm")
 };
+THUMBS.O = THUMBS.N.replace(/Big format/g, 'BCM');
 const CATLABEL=CAT_LABELS;
 const ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
 const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
